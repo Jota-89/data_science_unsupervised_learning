@@ -1,0 +1,24 @@
+# Librerías base para análisis de datos
+pandas>=1.3.0
+numpy>=1.21.0
+matplotlib>=3.3.0
+seaborn>=0.11.0
+
+# Scikit-learn y librerías de machine learning
+scikit-learn>=1.0.0
+# scikit-learn-extra removido por conflictos binarios con numpy
+scipy>=1.7.0
+
+# Librerías específicas para minería de datos
+umap-learn>=0.5.3
+statsmodels>=0.12.0
+
+# Streamlit para aplicación web interactiva
+streamlit>=1.29.0
+plotly>=5.15.0
+
+# Librerías adicionales que estaban comentadas en el paquete original
+sklearn-genetic>=0.4.0
+
+# Para manejo de warnings y logging
+colorlog>=6.0.0

@@ -1,0 +1,21 @@
+services:
+  mineria-datos:
+    build: .
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8501:8501"  # Puerto para Streamlit
+    stdin_open: true
+    tty: true
+    command: ["python", "-c", "print('🐳 Docker listo - todas las dependencias instaladas'); import time; time.sleep(999999)"]
+    
+  # Servicio para instalar dependencias en tu entorno local
+  install-deps:
+    build: .
+    volumes:
+      - .:/app
+    working_dir: /app
+    profiles:
+      - install
+    command: ["sh", "-c", "pip freeze > installed_packages.txt && echo ' Dependencias exportadas a installed_packages.txt' && echo ' Para instalar localmente: pip install -r installed_packages.txt'"]
