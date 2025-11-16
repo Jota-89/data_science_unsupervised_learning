@@ -3505,6 +3505,9 @@ def main():
                 "Comparación final",
             ],
         )
+        
+        # Versión corregida - T-SNE Fix aplicado
+        st.sidebar.success("✅ T-SNE Fix v2.0 - Nov 2025")
 
         df, df_num, datos_escalados_df, scaler = load_and_process_data_bankchurners()
         if df is None:
