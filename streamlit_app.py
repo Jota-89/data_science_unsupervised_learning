@@ -1,4 +1,5 @@
 import warnings
+# Fix T-SNE tuple unpacking - Updated Nov 2025
 
 import numpy as np
 import pandas as pd
