@@ -1116,7 +1116,8 @@ def mostrar_analisis_tsne(datos_escalados_df, analisis):
     )
 
     resultados_tsne = analisis["resultados_tsne"]
-    mejor_key, mejor_info = analisis["mejor_tsne"]
+    mejor_key, mejor_info = analisis["mejor_tsne"] if analisis["mejor_tsne"] else (
+        None, None)
 
     st.markdown(
         """
@@ -1362,7 +1363,8 @@ def mostrar_comparacion_final(analisis):
     )
 
     if analisis["mejor_tsne"]:
-        tsne_key, tsne_info = analisis["mejor_tsne"]
+        tsne_key, tsne_info = analisis["mejor_tsne"] if analisis["mejor_tsne"] else (
+            None, None)
         filas.append(
             {
                 "Técnica": "T-SNE",
@@ -3216,7 +3218,7 @@ def mostrar_analisis_umap_hotel(datos_escalados_df, analisis):
             )
 
         with col2:
-            if "mejor_tsne" in analisis and analisis["mejor_tsne"][1]:
+            if "mejor_tsne" in analisis and analisis["mejor_tsne"] and len(analisis["mejor_tsne"]) > 1:
                 tsne_ami = analisis["mejor_tsne"][1]["ami"]
                 umap_ami = mejor_info["ami"]
                 winner = "UMAP" if umap_ami > tsne_ami else "T-SNE" if tsne_ami > umap_ami else "Empate"
@@ -3294,7 +3296,7 @@ def mostrar_comparacion_final_hotel(analisis):
         }
     ]
 
-    if "mejor_tsne" in analisis and analisis["mejor_tsne"][1]:
+    if "mejor_tsne" in analisis and analisis["mejor_tsne"] and len(analisis["mejor_tsne"]) > 1:
         tsne_info = analisis["mejor_tsne"][1]
         metodos_resumen.append({
             "Técnica": "T-SNE",
